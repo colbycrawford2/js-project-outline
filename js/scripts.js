@@ -73,8 +73,8 @@ let pokemonRepository = (function () {
     return {
         getAll: getAll,
         add: add,
-        addListItem: addListItem
-    }
+        loadList: loadList
+    };
 
 })();
 
