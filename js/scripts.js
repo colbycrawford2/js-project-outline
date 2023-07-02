@@ -80,9 +80,12 @@ let pokemonRepository = (function () {
 
     console.log(pokemonRepository.getAll())
 
+pokemonRepository.loadList().then(function() {
+
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);  
     });
+});
 
 //for loop shows large pokemon//
 //can I delete the for loop?//
