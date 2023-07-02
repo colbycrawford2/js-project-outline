@@ -80,7 +80,9 @@ let pokemonRepository = (function () {
 
       //what goes inside the console.log()?//
       function showDetails(pokemon) {
-        console.log(pokemon);
+        loadDetails(pokemon).then(function () {
+            console.log(pokemon);
+        });
       }
 
     return {
