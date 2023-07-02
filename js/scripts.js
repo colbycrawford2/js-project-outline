@@ -32,16 +32,32 @@ let pokemonRepository = (function () {
         pokemonList.push(pokemon);
     }
    
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = "pokemon.name";
+        button.classList.add("button-class");
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
+      }
+
     return {
         getAll: getAll,
-        add: add
+        add: add,
+        addListItem: addListItem
     }
 
 })();
 
-console.log(pokemonRepository.getAll())
+    console.log(pokemonRepository.getAll())
+
+    pokemonRepository.getAll().forEach(function (pokemon) {
+        pokemonRepository.addListItem(pokemon);  
+    });
 
 //for loop shows large pokemon//
+//can I delete the for loop?//
 /*for (let i = 0; i < pokemonList.length; i++ ) {
    if (pokemonList[i].height >= 1.0){
        document.write(pokemonList[i].name + ' (height:' + pokemonList[i].height + ') - wow, that\'s big<br/>');
@@ -49,13 +65,15 @@ console.log(pokemonRepository.getAll())
        document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')<br/>')
        }
 }*/
-let pokemonList = pokemonRepository.getAll();
+    let pokemonList = pokemonRepository.getAll();
 
-pokemonList.forEach(function(pokemon){
-    console.log(pokemon.name + pokemon.height + pokemon.type);
-});
+    pokemonList.forEach(function(pokemon){
+        document.write(pokemon.name + pokemon.height + pokemon.type);
+        
+    });
 
-function divide(dividend, divisor){
+//can I delete this section?//
+/*function divide(dividend, divisor){
     if(divisor === 0){
         return "You're trying to divide by 0."
     }else{
@@ -66,4 +84,4 @@ function divide(dividend, divisor){
     console.log(divide(4, 2));
     console.log(divide(7, 0));
     console.log(divide(1, 4));
-    console.log(divide(12, -3));
+    console.log(divide(12, -3));*/

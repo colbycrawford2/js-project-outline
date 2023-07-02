@@ -1,0 +1,9 @@
+.button-class {
+    background-color: #1ebbd7;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+  }
