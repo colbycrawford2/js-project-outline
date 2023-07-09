@@ -77,9 +77,9 @@ let pokemonRepository = (function () {
 
 })();
 
-    console.log(pokemonRepository.getAll())
+    //console.log(pokemonRepository.getAll())//
 
-pokemonRepository.loadList().then(function() {
+    pokemonRepository.loadList().then(function() {
 
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);  
