@@ -49,13 +49,12 @@ let pokemonRepository = (function () {
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
         //Added event listener to the button. Get clarification on how to do this.//
-        button.showDetails('click', function (event) {
-            console.log(event);
+        button.addEventListener('click', function (event) {
+            showDetails(pokemon);
         });
         
       }
 
-      //what goes inside the console.log()?//
       function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
