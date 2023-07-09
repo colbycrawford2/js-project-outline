@@ -9,7 +9,7 @@ let pokemonRepository = (function () {
             "name" in pokemon
         ) {
             pokemonList.push(pokemon);
-    }     else {
+        }   else {
             console.log("pokemon is not correct");
         }
     }
@@ -62,7 +62,7 @@ let pokemonRepository = (function () {
         });
     }
 
-      function showDetails(pokemon) {
+    function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
             console.log(pokemon);
         });
