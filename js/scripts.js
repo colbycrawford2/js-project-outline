@@ -88,12 +88,12 @@ pokemonRepository.loadList().then(function() {
        document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')<br/>')
        }
 }*/
-    let pokemonList = pokemonRepository.getAll();
+    /*let pokemonList = pokemonRepository.getAll();
 
     pokemonList.forEach(function(pokemon){
         document.write(pokemon.name + pokemon.height + pokemon.type);
         
-    });
+    });*/
 
 //can I delete this section?//
 /*function divide(dividend, divisor){
