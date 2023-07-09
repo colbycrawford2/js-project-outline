@@ -13,6 +13,7 @@ let pokemonRepository = (function () {
                 detailsUrl: item.url
              };
              add(pokemon);
+             console.log(pokemon);
            });
         }).catch(function (e) {
           console.error(e);
@@ -56,7 +57,7 @@ let pokemonRepository = (function () {
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
         //Added event listener to the button.//
-        button.addEventListener('click', function (event) {
+        button.addEventListener("click", function(event) {
             showDetails(pokemon);
         });
         
