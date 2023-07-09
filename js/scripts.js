@@ -76,7 +76,6 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
         showDetails: showDetails
     };
-
 })();
 
     //console.log(pokemonRepository.getAll())//
