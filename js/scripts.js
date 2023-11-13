@@ -161,20 +161,19 @@ let pokemonRepository = (function () {
     }
 
 //for loop shows large pokemon//
-//can I delete the for loop?//
-/*for (let i = 0; i < pokemonList.length; i++ ) {
+for (let i = 0; i < pokemonList.length; i++ ) {
    if (pokemonList[i].height >= 1.0){
        document.write(pokemonList[i].name + ' (height:' + pokemonList[i].height + ') - wow, that\'s big<br/>');
 } else {
        document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')<br/>')
        }
-}*/
-    /*let pokemonList = pokemonRepository.getAll();
+}
+    let pokemonList = pokemonRepository.getAll();
 
     pokemonList.forEach(function(pokemon){
         document.write(pokemon.name + pokemon.height + pokemon.type);
         
-    });*/
+    });
 
 //can I delete this section?//
 /*function divide(dividend, divisor){
