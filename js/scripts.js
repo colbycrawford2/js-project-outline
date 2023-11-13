@@ -26,7 +26,7 @@ let pokemonRepository = (function () {
         button.classList.add("button-class");
         listpokemon.appendChild(button);
         pokemonList.appendChild(listpokemon);
-        //Added event listener to the button.//
+        //Added event listener to the button.
         button.addEventListener("click", function(event) {
             showDetails(pokemon);
         });   
@@ -76,9 +76,9 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
         showDetails: showDetails
     };
-})();
+});
 
-    //console.log(pokemonRepository.getAll())//
+    //console.log(pokemonRepository.getAll())
 
     pokemonRepository.loadList().then(function() {
 
@@ -159,8 +159,37 @@ let pokemonRepository = (function () {
         dialogPromiseReject = reject;
       });
     }
+    
+    document.querySelector('#show-modal').addEventListener('click', () => {
+        showModal('Modal title', 'This is the modal content!');
+      });
+      
+      document.querySelector('#show-dialog').addEventListener('click', () => {
+        showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
+          alert('confirmed!');
+        }, () => {
+          alert('not confirmed');
+        });
+      });
+    
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+          hideModal();  
+        }
+      });
+      
+      modalContainer.addEventListener('click', (e) => {
+        // Since this is also triggered when clicking INSIDE the modal container,
+        // We only want to close if the user clicks directly on the overlay
+        let target = e.target;
+        if (target === modalContainer) {
+          hideModal();
+        }
+      });
+      
+    })();
 
-//for loop shows large pokemon//
+//for loop shows large pokemon
 for (let i = 0; i < pokemonList.length; i++ ) {
    if (pokemonList[i].height >= 1.0){
        document.write(pokemonList[i].name + ' (height:' + pokemonList[i].height + ') - wow, that\'s big<br/>');
