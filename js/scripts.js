@@ -4,9 +4,7 @@ let pokemonRepository = (function () {
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
     function add(pokemon) {
-        if (
-            typeof pokemon === "object" &&
-            "name" in pokemon
+        if ((typeof pokemon === "object") && (Object.keys(pokemon) [0] === "name") && (Object.keys(pokemon [1] === "height"))
         ) {
             pokemonList.push(pokemon);
         }   else {
@@ -39,7 +37,8 @@ let pokemonRepository = (function () {
            json.results.forEach(function (item) {
              let pokemon = {
                 name: item.name,
-                detailsUrl: item.url
+                detailsUrl: item.url,
+                imageUrl: item.myImage,
              };
              add(pokemon);
              console.log(pokemon);
@@ -65,6 +64,7 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             console.log(pokemon);
+            showModal(pokemon.name, pokemon.detailsUrl)
         });
       }
 
@@ -76,7 +76,7 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
         showDetails: showDetails
     };
-});
+})();
 
     //console.log(pokemonRepository.getAll())
 
@@ -87,7 +87,6 @@ let pokemonRepository = (function () {
     });
 });
 
-(function() {
     let modalContainer = document.querySelector('#modal-container');
     let dialogPromiseReject; // This can be set later, by showDialog
     
@@ -109,7 +108,7 @@ let pokemonRepository = (function () {
       
       let contentElement = document.createElement('p');
       contentElement.innerText = text;
-      
+  
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
       modal.appendChild(contentElement);
@@ -186,34 +185,8 @@ let pokemonRepository = (function () {
           hideModal();
         }
       });
-      
-    })();
 
-//for loop shows large pokemon
-for (let i = 0; i < pokemonList.length; i++ ) {
-   if (pokemonList[i].height >= 1.0){
-       document.write(pokemonList[i].name + ' (height:' + pokemonList[i].height + ') - wow, that\'s big<br/>');
-} else {
-       document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')<br/>')
-       }
-}
-    let pokemonList = pokemonRepository.getAll();
-
-    pokemonList.forEach(function(pokemon){
-        document.write(pokemon.name + pokemon.height + pokemon.type);
-        
-    });
-
-//can I delete this section?//
-/*function divide(dividend, divisor){
-    if(divisor === 0){
-        return "You're trying to divide by 0."
-    }else{
-        let result = dividend / divisor;
-        return result;
-        }    
-    }
-    console.log(divide(4, 2));
-    console.log(divide(7, 0));
-    console.log(divide(1, 4));
-    console.log(divide(12, -3));*/
+      let container = document.querySelector("#image-container");
+      let myImage = document.createElement("img");
+      myImage.src = "";
+      container.appendChild(myImage);
