@@ -64,7 +64,7 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         pokemonRepository.loadDetails(pokemon).then(function () {
             console.log(pokemon);
-            showModal(pokemon.name, pokemon.detailsUrl)
+            showModal(pokemon.name, pokemon.height, pokemon.imageUrl)
         });
       }
 
@@ -90,7 +90,7 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector('#modal-container');
     let dialogPromiseReject; // This can be set later, by showDialog
     
-    function showModal(title, text) {
+    function showModal(title, height, text) {
       // Clear all existing modal content
       modalContainer.innerHTML = '';
       
@@ -107,11 +107,15 @@ let pokemonRepository = (function () {
       titleElement.innerText = title;
       
       let contentElement = document.createElement('p');
-      contentElement.innerText = text;
+      contentElement.innerText = "height: " + height;
+
+      let myImage = document.createElement("img");
+      myImage.src = text;
   
       modal.appendChild(closeButtonElement);
       modal.appendChild(titleElement);
       modal.appendChild(contentElement);
+      modal.appendChild(myImage);
       modalContainer.appendChild(modal);
       
       modalContainer.classList.add('is-visible');
@@ -185,8 +189,3 @@ let pokemonRepository = (function () {
           hideModal();
         }
       });
-
-      let container = document.querySelector("#image-container");
-      let myImage = document.createElement("img");
-      myImage.src = "";
-      container.appendChild(myImage);
